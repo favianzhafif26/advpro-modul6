@@ -13,3 +13,11 @@ Elemen penting dalam respons ini adalah Content-Length, yang memberi tahu browse
 
 Commit 2 screen capture:
 ![Commit 2 screen capture](/assets/images/commit2.png)
+
+# Refleksi Milestone 3: Validating request and selectively responding
+Pada tahap ini, server dikembangkan agar dapat merespons permintaan dengan lebih cerdas. Dengan membaca dan memeriksa path dalam permintaan HTTP, server dapat memberikan respons yang berbeda tergantung pada URL yang diakses. Jika pengguna mengakses /, server akan mengirimkan hello.html, sedangkan untuk path yang tidak dikenali, server akan menampilkan `404.html` dengan status `404 Not Found`.
+
+Refactoring dilakukan untuk memisahkan logika dalam membangun respons agar kode lebih terstruktur dan mudah dipahami. Hal ini sangat penting dalam pengembangan aplikasi web yang lebih kompleks, di mana berbagai jenis permintaan harus ditangani dengan cara yang berbeda. Dengan pendekatan ini, server menjadi lebih fleksibel, mudah diperluas, dan lebih siap untuk menangani skenario yang lebih beragam.
+
+Commit 3 screen capture:
+![Commit 3 screen capture](/assets/images/commit3.png)
