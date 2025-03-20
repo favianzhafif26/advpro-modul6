@@ -39,3 +39,7 @@ Pada tahap terakhir ini, saya mengembangkan server agar dapat menangani banyak p
 Hasil uji coba menunjukkan bahwa server kini lebih responsif dalam menangani permintaan secara simultan. Tidak ada lagi blocking ketika ada permintaan yang membutuhkan waktu lebih lama untuk diproses, menjadikan server lebih siap untuk menangani skenario dunia nyata dengan lebih baik.
 
 ---
+# Refleksi Milestone Bonus:
+Pada pengembangan bonus, saya mengganti fungsi `new` dengan pola `build` pada `ThreadPool`. Perubahan ini membuat kode lebih fleksibel dan mudah digunakan. Keuntungan utama dari perubahan ini adalah kode lebih mudah dibaca dengan rantai metode yang jelas lalu kita juga bisa menambah fitur baru tanpa mengubah API yang sudah ada, selain itu thread worker punya nama yang berguna saat debugging.
+
+Meski terlihat sederhana, perubahan ini membuat `ThreadPool` lebih kuat dan siap untuk pengembangan masa depan. Kode tetap berjalan dengan baik tanpa mengubah fungsionalitas inti, tapi sekarang lebih fleksibel dan mudah dipahami.
