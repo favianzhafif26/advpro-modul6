@@ -2,29 +2,14 @@
 
 # Refleksi Milestone 1: Single Threaded Web Server
 
-## Pengalaman Membangun Server Sederhana
+Pada tahap ini, saya membangun server sederhana menggunakan Rust yang mampu menerima koneksi dari browser. Dengan menggunakan `TcpListener`, server dapat mendengarkan permintaan di alamat `127.0.0.1:7878`. Saat ada koneksi masuk, terminal menampilkan pesan Connection established!, yang menandakan bahwa server berfungsi dengan baik.
 
-Pada milestone ini, kita berhasil membuat server web dasar menggunakan Rust. Server ini mampu menerima koneksi dari browser, meskipun belum mengirimkan respons yang bisa ditampilkan di layar. Saat pertama kali dijalankan, kita melihat pesan `Connection established!`, yang menunjukkan bahwa ada koneksi yang masuk ke server kita.
+Saya juga memahami bahwa jika browser tidak menerima respons, ia akan secara otomatis mengulangi permintaan, menyebabkan beberapa pesan koneksi muncul di terminal. Selain itu, penting untuk menghentikan server dengan benar agar port yang digunakan tidak tetap terbuka dan menghalangi server dijalankan kembali.
 
-## Hal yang Dipelajari
+# Refleksi Milestone 2: Returning HTML
+Pada tahap ini, saya mengembangkan server agar dapat mengirimkan halaman HTML sebagai respons ke browser. Metode `handle_connection` diperbarui untuk membaca file `hello.html` dan mengirimkannya sebagai bagian dari respons HTTP dengan status `200 OK`.
 
-### 1. Cara Server Menerima Koneksi
-Menggunakan `TcpListener`, kita bisa membuat server yang mendengarkan permintaan dari klien di alamat `127.0.0.1:7878`. Ketika browser mencoba mengaksesnya, koneksi terbentuk, meskipun belum ada halaman yang ditampilkan.
+Elemen penting dalam respons ini adalah Content-Length, yang memberi tahu browser ukuran konten yang dikirimkan. Dengan menambahkan HTML sederhana, kini saya dapat melihat tampilan di browser. Hal ini memperjelas bagaimana komunikasi HTTP bekerja, termasuk bagaimana server membaca permintaan, menentukan respons yang sesuai, dan mengirimkan data ke browser.
 
-### 2. Perilaku Browser Saat Tidak Mendapat Respons
-Jika server tidak memberikan balasan, browser bisa secara otomatis mengirim ulang permintaan. Itulah sebabnya kita melihat beberapa pesan `Connection established!` muncul di terminal.
-
-### 3. Membaca Permintaan dari Browser
-Setelah menambahkan fungsi `handle_connection`, kita bisa membaca permintaan HTTP yang dikirim oleh browser. Permintaan ini mencakup informasi seperti:
-- **Metode HTTP** (misalnya, `GET / HTTP/1.1`)
-- **Header** seperti `Host`, `User-Agent`, `Accept`, dll.
-
-Ini memberi wawasan tentang bagaimana browser dan server berkomunikasi satu sama lain.
-
-### 4. Pentingnya Menghentikan Server dengan Benar
-Jika server tidak dihentikan dengan baik, port `7878` tetap digunakan, yang menyebabkan error saat kita mencoba menjalankannya kembali. Untuk menghindari masalah ini, kita bisa menekan `Ctrl+C` di terminal atau menggunakan opsi `stop` di IDE.
-
-## Kesimpulan
-Pada tahap awal ini, kita belajar tentang dasar-dasar server berbasis TCP di Rust. Kita memahami bagaimana koneksi dibuat, bagaimana browser mengirim permintaan, dan bagaimana server dapat membaca permintaan tersebut. Langkah berikutnya adalah mengembangkan server ini agar bisa memberikan respons kepada klien.
-
-Pengalaman ini sangat menarik dan menjadi dasar yang bagus untuk memahami cara kerja server web sebelum masuk ke fitur yang lebih kompleks seperti multi-threading dan pemrosesan request yang lebih canggih.
+Commit 2 screen capture:
+![Commit 2 screen capture](/assets/images/commit2.png)
